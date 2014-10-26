@@ -16,11 +16,11 @@
 
 makeCacheMatrix <- function(x = matrix())
   {
-  invs <- NULL
+  invs <- NULL              ## clears inverse value in cache
   
   set <- function(y) {      ## set function
-    x <<- y                 ## setting value of matrix
-    invs <<- NULL
+    x <<- y                 ## setting value of matrix to x
+    invs <<- NULL           ## and clearing inverse value 
   }  
   
   get <- function() x       ## get function, returns value of matrix
@@ -57,3 +57,10 @@ cacheSolve <- function(x, ...)
   }
 
 
+## To test the script:
+## First create a sample matrix and assign it to an object: m<-matrix(c(1:4),2,2)
+## Assign makeCacheMatrix(m) to an object: mt<-makeCacheMatrix(m)
+## Run cacheSolve: cacheSolve(mt)
+## It should return the message "setting inverse to cache" and should print the inverse
+## Run cacheSolve(mt) again
+## It should return the message "getting cached data" and should print the inverse
